@@ -1,4 +1,4 @@
-# My-Linux-Config
+# My-Linux-configuration
 * A simple Linux configuration
 
 ## To get Common software 
