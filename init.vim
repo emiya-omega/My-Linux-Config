@@ -15,6 +15,7 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'neomake/neomake'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'morhetz/gruvbox'
+Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
@@ -33,6 +34,13 @@ filetype plugin indent on
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 colorscheme gruvbox
 nmap <silent> <F2>e :NERDTree <cr>
+"打开vim时自动启动NerdTree,并在打开文件时自动进去右边编辑区                                                                                                                                                                              
+ autocmd vimenter * NERDTree
+ wincmd w
+ autocmd VimEnter * wincmd w
+ "vim退出时退出nerdtree
+ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
 let g:deoplete#enable_at_startup = 1
 set pyxversion=3
 set encoding=utf-8
@@ -64,7 +72,7 @@ elseif &filetype == 'java'
 elseif &filetype == 'sh'
             :!time bash %
 elseif &filetype == 'python'
-            exec "!time python %"
+            exec "AsyncRun! -mode=term python %"
 elseif &filetype == 'html'
             exec "!firefox % &"
 elseif &filetype == 'go'
