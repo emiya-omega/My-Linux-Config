@@ -15,21 +15,11 @@
 # If you want to use XFCE config tools...
 #
 #xfce-mcs-manager &
+fcitx5 &
+budgie-panel &
 compton -b &
-
-plank &
-
-volumeicon&
-
-sh ~/.config/polybar/launch.sh &
-
-fcitx &
-
+nm-applet &
 feh --randomize --bg-fill ~/Pictures &
-
- xinput set-prop --type=int --format=8 "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1 &
-
-
 /usr/lib/gsd-xsettings &
-
-
+xinput set-prop --type=int --format=8 "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1 &
+yakuake &
