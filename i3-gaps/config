@@ -202,17 +202,16 @@ bindsym Mod1+r mode "resize"
 # Please remove the following exec line:
 exec i3-config-wizard
 
-exec feh --randomize --bg-fill ~/Pictures
+exec feh --randomize --bg-fill ~/Pictures/i3
 
-exec --no-startup-id compton -b
+exec --no-startup-id picom --experimental-backends
 
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5
 
 
 bindsym Mod1+d exec rofi -show drun
 
-exec_always --no-startup-id sh ~/.config/polybar/launch.sh
-
+exec_always --no-startup-id sh ~/.config/polybar/launchi3.sh
 
 new_window none
 new_float normal
@@ -233,7 +232,9 @@ exec_always --no-startup-id  xinput set-prop --type=int --format=8 "ETPS/2 Elant
 
 bindsym Mod1+q exec deepin-screenshot
 
-exec_always --no-startup-id optimus-manager-qt 
+exec_always --no-startup-id optimus-manager-qt
+
+exec_always --no-startup-id xfce4-power-manager
 
 gaps inner 8
 gaps outer 6
