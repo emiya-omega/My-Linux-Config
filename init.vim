@@ -1,14 +1,11 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'zchee/deoplete-jedi'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'iamcco/mathjax-support-for-mkdp'
@@ -38,36 +35,21 @@ set ruler
 filetype plugin indent on
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 colorscheme gruvbox
-nmap <silent> <F2>e :NERDTree <cr>
+"nmap <silent> <F2>e :NERDTree <cr>
 "打开vim时自动启动NerdTree,并在打开文件时自动进去右边编辑区                               
-tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
-nnoremap <silent> <M-o> :RnvimrToggle<CR>
-tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
-autocmd vimenter * NERDTree
- wincmd w
- autocmd VimEnter * wincmd w
+"tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+"nnoremap <silent> <M-o> :RnvimrToggle<CR>
+"tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
+"autocmd vimenter * NERDTree
+" wincmd w
+" autocmd VimEnter * wincmd w
  "vim退出时退出nerdtree
  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
-let g:deoplete#enable_at_startup = 1
 set pyxversion=3
 set encoding=utf-8
-nmap <F9> <Plug>MarkdownPreview
-let g:mkdp_path_to_chrome = ""
-let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
-let g:mkdp_auto_start = 1
-let g:mkdp_auto_open = 1
-let g:mkdp_auto_close = 1
-let g:mkdp_refresh_slow = 0
-let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_world = 1
 :nmap <space>e :CocCommand explorer<CR>
 "当NERDTree为剩下的唯一窗口时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nmap <silent> <F8> <Plug>MarkdownPreview        " 普通模式
-imap <silent> <F8> <Plug>MarkdownPreview        " 插入模式
-nmap <silent> <C-F8> <Plug>StopMarkdownPreview    " 普通模式
-imap <silent> <C-F8> <Plug>StopMarkdownPreview    " 插入模式
 map <F5> :call CompileRunGcc()<CR>
     func! CompileRunGcc()
         exec "w"
