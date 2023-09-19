@@ -42,7 +42,7 @@ set $left j
 set $right semicolon
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod1
+#floating_modifier Mod1
 
 # start a terminal
 bindsym Mod1+Return exec xfce4-terminal
@@ -204,14 +204,15 @@ exec i3-config-wizard
 
 exec feh --randomize --bg-fill ~/Pictures/i3
 
-exec --no-startup-id picom --experimental-backends
+exec --no-startup-id picom -b
 
 exec --no-startup-id fcitx5
 
+exec --no-startup-id blueman-applet
 
-bindsym Mod1+d exec rofi -show drun
+bindsym Mod1+d exec sh .config/rofi/launchers/type-1/launcher.sh
 
-exec_always --no-startup-id sh ~/.config/polybar/launchi3.sh
+exec_always --no-startup-id sh ~/.config/polybar/launch.sh --shapes
 
 new_window none
 new_float normal
@@ -219,18 +220,18 @@ hide_edge_borders both
 
 exec_always --no-startup-id xfce4-power-manager
 
-exec_always --no-startup-id /usr/lib/gsd-xsettings
+#exec_always --no-startup-id /usr/lib/gsd-xsettings
 exec_always --no-startup-id volumeicon
 
-bindsym Mod1+Shift+a exec atom
+bindsym Mod1+Shift+a exec code
 
-bindsym Mod1+c exec chromium
+bindsym Mod1+c exec google-chrome-stable
 
-bindsym Mod1+t exec nautilus
+bindsym Mod1+t exec index
 
-exec_always --no-startup-id  xinput set-prop --type=int --format=8 "ETPS/2 Elantech Touchpad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id  xinput set-prop --type=int --format=8 "ASUF1204:00 2808:0202 Touchpad" "libinput Tapping Enabled" 1
 
-bindsym Mod1+q exec deepin-screenshot
+bindsym Mod1+q exec spectacle
 
 exec_always --no-startup-id optimus-manager-qt
 
