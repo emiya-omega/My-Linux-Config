@@ -1,14 +1,15 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'zchee/deoplete-jedi'
+#Plug 'zchee/deoplete-jedi'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete.nvim'
+Plug 'voldikss/vim-floaterm'
+#plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+#Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'iamcco/mathjax-support-for-mkdp'
@@ -68,6 +69,7 @@ nmap <silent> <F8> <Plug>MarkdownPreview        " 普通模式
 imap <silent> <F8> <Plug>MarkdownPreview        " 插入模式
 nmap <silent> <C-F8> <Plug>StopMarkdownPreview    " 普通模式
 imap <silent> <C-F8> <Plug>StopMarkdownPreview    " 插入模式
+map <F7> :FloatermNew<CR>
 map <F5> :call CompileRunGcc()<CR>
     func! CompileRunGcc()
         exec "w"
