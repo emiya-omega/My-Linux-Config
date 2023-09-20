@@ -1,6 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'vim-airline/vim-airline'
-#Plug 'zchee/deoplete-jedi'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree'
@@ -8,8 +7,6 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'voldikss/vim-floaterm'
-#plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-#Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'iamcco/mathjax-support-for-mkdp'
@@ -39,6 +36,9 @@ set ruler
 filetype plugin indent on
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 colorscheme gruvbox
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" 设置coc补全键为tab shift+tab
 nmap <silent> <F2>e :NERDTree <cr>
 "打开vim时自动启动NerdTree,并在打开文件时自动进去右边编辑区                               
 tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
